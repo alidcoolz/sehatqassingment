@@ -6,7 +6,8 @@ Section A:  System Administrator Questions
 not realy sure, i think no correlation between hdd out of space and socket file. socket operate in memory.
 
        Why we cannot perform a connection if our harddrive space is running out.
-it can happened cause At lot of daemon do access logging. If the disk out of space, it might happen that logging from daemon / process will be fails and no more network requests are possible
+it can happened cause At lot of daemon do access logging. If the disk out of space, 
+it might happen that logging from daemon / process will be fails and no more network requests are possible
  
 
 2.    How to whitelist user on ssh login, without removing their public key on the servers ?
@@ -56,4 +57,7 @@ then restart nginx service
 7.    What is the meaning of the orphan process ? How does that happen ?
 
  
-i think Orphan processes are childs processes that running without their parent process, it can happen cause their parent process maybe has terminated or finished but the child still stuck (maybe the parent terminated forcely , or maybe when stopping the parent process the time for stopping the child process not enough, or maybe another issues like crashes and so on, it sometime happens accidentaly
+i think Orphan processes are childs processes that running without their parent process, 
+it can happen cause their parent process maybe has terminated or finished but the child still stuck (maybe the parent terminated forcely, 
+or maybe when stopping the parent process the time for stopping the child process not enough, 
+or maybe another issues like crashes and so on, it sometime happens accidentaly
