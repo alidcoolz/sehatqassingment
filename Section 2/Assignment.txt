@@ -16,7 +16,10 @@ With VPC Peering
 Use NAT with an elastic IP
 
 Sign in to the AWS Management Console > Open the Amazon VPC console > Choose NAT Gateway > Choose Create NAT Gateway and then select the public subnet and EIP that you have provisioned for the NAT gateway.
-After NAT gateway created, make note of the associated ID, which will resemble "nat-xxxxxxx". Choose the Route Tables link, and then choose the route table associated with your NAT gateway. Update this route table so that 0.0.0.0/0 points to the ID of the NAT gateway that you created. Verify internet connectivity with ping on shell / command prompt
+After NAT gateway created, make note of the associated ID, which will resemble "nat-xxxxxxx". Choose the Route Tables link, 
+and then choose the route table associated with your NAT gateway. 
+Update this route table so that 0.0.0.0/0 points to the ID of the NAT gateway that you created. 
+Verify internet connectivity with ping on shell / command prompt
 
 
 5. If you create External Load Balancer (ELB), what subnet must attach to this Load Balancer to make it accessible from Internet ?
@@ -31,7 +34,8 @@ NLB works at network and transport layers (Layer 3 & 4)
 
 
 7. Whats is the difference between S3 and S3 Glacier ? and when to use them
-S3 is used for low latency or frequent access data  (simple &  fast storage service). S3 Glacier is used for archiving solutions when we not require low latency access to the data.
+S3 is used for low latency or frequent access data  (simple &  fast storage service). 
+S3 Glacier is used for archiving solutions when we not require low latency access to the data.
 
 8. What is the difference between EBS and EFS ?
 EBS is volume block level storage for EC2 instances.
