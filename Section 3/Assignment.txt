@@ -1,0 +1,46 @@
+Section C:  Kubernetes Questions
+
+ 
+
+1. What is the difference between ingress controller and ingress resources
+ingress controller is responsible for fulfilling the Ingress as load balancer / frontend
+
+ingress Resources is use for make the service can be accessed outside the cluster.
+
+In order for the Ingress resource to work, the cluster must have an Ingress controller running.
+
+2. In managed kubernetes service (EKS, GKE, AKS ) what will happen when you install ingress controller ? the internal network in the cluster can be accessed from external
+
+3. I already deployed HPA (Horizontal Pod Autoscaler ) but it seems the HPA didn’t get the metric (unknown). In your experience, what could be the cause of this issue ?
+it could be broken InternalIP / hostname
+
+4. Take a backup of the etcd cluster and save it to /tmp/etcd-backup.db
+
+etcdctl snapshot save /tmp/etcd-backup.db
+
+5. Create a Pod called redis-storage with image: redis:alpine with a Volume of type emptyDir that lasts for the life of the Pod. Specs on the right. Just write the manifest
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-storage
+spec:
+  containers:
+  - name: redis-storage
+    image: redis:alpine
+    volumeMounts:
+    - name: redis-storage
+      mountPath: /data/redis-storage
+  volumes:
+  - name: redis-storage
+    emptyDir: {}
+
+6. How to get the internal IP address of all nodes using jsonpath
+
+kubectl get nodes -o jsonpath={.items[*].status.addresses[?\(@.type==\"InternalIP\"\)].address}
+
+7. What is the difference between taint and toleration and when to use it ?
+
+Taints and tolerations works together to ensure that pods are not scheduled onto inappropriate nodes. Taints are a property of nodes that push pods away if they don't tolerate this taint. Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+
+it useful for case if you want to work with dedicated nodes, with very specific parameters like high CPU, or use these nodes only for specific applications. 
