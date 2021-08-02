@@ -1,0 +1,43 @@
+Section B: AWS Questions
+
+ 
+
+1. If i have workload with memory centric, what ec2 instance type must i choose ?
+we can choose EC2 Memory optimized instances like R5, R5a, R5b, and R5n instances
+
+
+2. I have two instances, deployed in same region and same availability zone, what else should  i do to reduce latency between this instance ?
+i think we don't need worry about latency in AWS networks between zones in the same region, but we can use PrivateLink beetween the instances
+
+3. If you have two VPC, how to connect them ?
+With VPC Peering
+
+4. How to make private subnet on VPC can access the internet ? explain the steps  in details
+Use NAT with an elastic IP
+
+Sign in to the AWS Management Console > Open the Amazon VPC console > Choose NAT Gateway > Choose Create NAT Gateway and then select the public subnet and EIP that you have provisioned for the NAT gateway.
+After NAT gateway created, make note of the associated ID, which will resemble "nat-xxxxxxx". Choose the Route Tables link, and then choose the route table associated with your NAT gateway. Update this route table so that 0.0.0.0/0 points to the ID of the NAT gateway that you created. Verify internet connectivity with ping on shell / command prompt
+
+
+5. If you create External Load Balancer (ELB), what subnet must attach to this Load Balancer to make it accessible from Internet ?
+
+attach the public subnets 
+
+6. Which one is fast ? ALB or NLB, explain why.
+i think ALB or NLB can't be compared which one is fast. both have different use depends on the specific needs of your application, 
+
+ALB works at the application layer (Layer 7)
+NLB works at network and transport layers (Layer 3 & 4)
+
+
+7. Whats is the difference between S3 and S3 Glacier ? and when to use them
+S3 is used for low latency or frequent access data  (simple &  fast storage service). S3 Glacier is used for archiving solutions when we not require low latency access to the data.
+
+8. What is the difference between EBS and EFS ?
+EBS is volume block level storage for EC2 instances.
+EFS is NFS storage.
+
+9. I already have SSL certificate and key, what AWS service must i use to do SSL termination on ELB ?
+Associate the certificates with the corresponding ALB
+
+ 
