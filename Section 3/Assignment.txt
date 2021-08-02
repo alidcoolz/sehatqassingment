@@ -9,7 +9,7 @@ ingress Resources is use for make the service can be accessed outside the cluste
 
 In order for the Ingress resource to work, the cluster must have an Ingress controller running.
 
-2. In managed kubernetes service (EKS, GKE, AKS ) what will happen when you install ingress controller ? the internal network in the cluster can be accessed from external
+2. In managed kubernetes service (EKS, GKE, AKS ) what will happen when install ingress controller ? the internal network in the cluster can be accessed from external
 
 3. I already deployed HPA (Horizontal Pod Autoscaler ) but it seems the HPA didn’t get the metric (unknown). In your experience, what could be the cause of this issue ?
 it could be broken InternalIP / hostname
@@ -41,6 +41,8 @@ kubectl get nodes -o jsonpath={.items[*].status.addresses[?\(@.type==\"InternalI
 
 7. What is the difference between taint and toleration and when to use it ?
 
-Taints and tolerations works together to ensure that pods are not scheduled onto inappropriate nodes. Taints are a property of nodes that push pods away if they don't tolerate this taint. Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
+Taints and tolerations works together to ensure that pods are not scheduled onto inappropriate nodes. 
+Taints are a property of nodes that push pods away if they don't tolerate this taint. 
+Tolerations are applied to pods, and allow the pods to schedule onto nodes with matching taints.
 
-it useful for case if you want to work with dedicated nodes, with very specific parameters like high CPU, or use these nodes only for specific applications. 
+it useful for case if we want to work with dedicated nodes, with very specific parameters like high CPU, or use these nodes only for specific applications. 
