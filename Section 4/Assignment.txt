@@ -1,0 +1,41 @@
+sorry i couldn't finish this section, I need more time to finish this section, because yesterday i had migration agenda in one of my current company's client
+
+Section D: Use Case
+
+ 
+
+1)    You want to build an e-commerce site, clone of toko.sehatq.com. The developers team in SehatQ agrees to help you. However, they know nothing about server setup, infrastructure, and deployment. Fortunately, their code also is stateless, are state being stored on redis.
+
+ 
+
+The developer team has 3 services:
+
+ 
+
+-       Service A is web (nodejs) (frontend) - Internet Facing and store state on redis.
+
+-       Service B is backend 1 (golang)
+
+-       Service C is backend 2 (golang)
+
+-       Service A need to call Service B internally
+
+-       Service B need to call Service C internally
+
+-       Service C need to access the database outside the cluster
+
+-       To get more visibility, the traffic between service must be observed (mesh)
+
+-       All service must be autoscaled
+
+-       write the ENV on configmap
+
+ 
+
+Your task is put those infrastructure on Docker and Kubernetes.
+
+ 
+
+-       Write the kubernetes manifest (YAML ) and helm chart
+
+-       Sample docker image for 3 services
